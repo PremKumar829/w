@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Girlfriend Day, Sargam 🎶</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Petit+Formal+Script&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#20111d;
+    --wine:#4a2436;
+    --wine-light:#6b3348;
+    --rose:#d98a94;
+    --gold:#d6ac6f;
+    --cream:#f7ece2;
+    --cream-dim:#cbb7ae;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--cream);
+    font-family:'Work Sans',sans-serif;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{font-family:'Fraunces',serif;}
+  .script{font-family:'Petit Formal Script',cursive;}
+
+  a{color:inherit;}
+  section{position:relative;padding:120px 24px;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100vh;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center;
+    background:
+      radial-gradient(circle at 50% 15%, rgba(217,138,148,0.18), transparent 60%),
+      linear-gradient(180deg,#241522 0%, var(--ink) 55%, #150a13 100%);
+  }
+  .eyebrow{
+    letter-spacing:0.3em; text-transform:uppercase; font-size:0.72rem;
+    color:var(--gold); margin-bottom:22px; opacity:0.9;
+  }
+
+  .locket{
+    position:relative; width:168px; height:168px; border-radius:50%;
+    margin:0 auto 34px; padding:6px;
+    background:linear-gradient(145deg,var(--gold),#8a6a3a);
+    box-shadow:0 0 0 1px rgba(214,172,111,0.35), 0 20px 45px -12px rgba(0,0,0,0.6);
+    animation:floatIn 1.4s ease-out both;
+  }
+  .locket-inner{
+    width:100%; height:100%; border-radius:50%; overflow:hidden;
+    background:linear-gradient(160deg,#7a3b4d,#3a1c2b);
+    display:flex; align-items:center; justify-content:center;
+  }
+  /* Replace this img src with Sargam's real photo — see comment near </body> */
+  .locket-inner img{
+    width:100%; height:100%; object-fit:cover; display:block;
+  }
+  .locket-inner .placeholder-note{
+    font-size:2.6rem; color:rgba(247,236,226,0.55);
+  }
+
+  h1.title{
+    font-size:clamp(2.2rem,6vw,3.6rem); font-weight:600; line-height:1.1;
+    margin-bottom:8px;
+  }
+  .name-script{
+    font-size:clamp(3.2rem,9vw,5.6rem); color:var(--rose); line-height:1;
+    margin:6px 0 22px;
+  }
+  .hero p.tag{
+    max-width:480px; margin:0 auto; color:var(--cream-dim); font-size:1.02rem; line-height:1.6;
+  }
+  .scroll-cue{
+    margin-top:56px; font-size:0.75rem; letter-spacing:0.25em; text-transform:uppercase;
+    color:var(--cream-dim); opacity:0.7;
+  }
+  .scroll-cue .arrow{display:block; margin:8px auto 0; width:1px; height:34px; background:var(--gold); animation:pulseLine 2s infinite;}
+
+  @keyframes floatIn{from{opacity:0; transform:translateY(18px) scale(0.94);} to{opacity:1; transform:translateY(0) scale(1);}}
+  @keyframes pulseLine{0%,100%{opacity:0.25;} 50%{opacity:0.9;}}
+
+  .section-head{text-align:center; max-width:640px; margin:0 auto 80px;}
+  .section-head .eyebrow{color:var(--rose);}
+  .section-head h2{font-size:clamp(1.7rem,4vw,2.4rem); font-weight:600;}
+  .section-head p{color:var(--cream-dim); margin-top:14px; line-height:1.7;}
+
+  /* ---------- LETTER SECTION ---------- */
+  .letter-section{
+    background:var(--ink); text-align:center;
+  }
+  .envelope-wrap{max-width:520px; margin:0 auto;}
+  .envelope{
+    position:relative; cursor:pointer; user-select:none;
+    background:linear-gradient(160deg,#7a3b4d,#4a2436);
+    border:1px solid rgba(214,172,111,0.4);
+    border-radius:6px; padding:40px 30px; text-align:center;
+    transition:transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .envelope:hover{transform:translateY(-4px); box-shadow:0 24px 50px -20px rgba(0,0,0,0.6);}
+  .envelope .seal{
+    width:52px; height:52px; border-radius:50%; margin:0 auto 18px;
+    background:radial-gradient(circle at 35% 30%, #e6bd7a, var(--gold) 60%, #a3763c);
+    display:flex; align-items:center; justify-content:center; font-size:1.3rem;
+    box-shadow:0 6px 14px -4px rgba(0,0,0,0.5);
+  }
+  .envelope .hint{font-size:0.82rem; color:var(--cream-dim); letter-spacing:0.05em;}
+  .letter-body{
+    display:none; text-align:left; margin-top:34px; padding:38px 34px;
+    background:#241522; border:1px solid rgba(214,172,111,0.25); border-radius:6px;
+    animation:unfold 0.5s ease both;
+  }
+  .letter-body.open{display:block;}
+  @keyframes unfold{from{opacity:0; transform:translateY(-10px) scaleY(0.96);} to{opacity:1; transform:translateY(0) scaleY(1);}}
+  .letter-body p{margin-bottom:16px; line-height:1.85; color:var(--cream-dim); font-size:1rem;}
+  .letter-body p:last-child{margin-bottom:0;}
+  .letter-body .sign-off{color:var(--rose); font-family:'Fraunces',serif; font-style:italic; margin-top:26px;}
+
+  /* ---------- GALLERY / PHOTO SECTION ---------- */
+  .gallery-section{
+    background:linear-gradient(180deg,#150a13,var(--wine) 60%, #150a13);
+    text-align:center;
+  }
+  .frame{
+    max-width:360px; margin:0 auto; padding:14px;
+    background:linear-gradient(150deg,var(--gold),#8a6a3a);
+    border-radius:8px;
+  }
+  .frame-inner{
+    border-radius:4px; overflow:hidden; aspect-ratio:4/5;
+    background:linear-gradient(160deg,#5c2a3a,#2a1420);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .frame-inner img{width:100%; height:100%; object-fit:cover; display:block;}
+  .frame-inner .placeholder-note{color:rgba(247,236,226,0.5); font-size:0.9rem; padding:20px; line-height:1.6;}
+  .frame-caption{margin-top:20px; color:var(--cream-dim); font-size:0.9rem; letter-spacing:0.04em;}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    padding:70px 24px 50px; text-align:center; background:var(--ink);
+    border-top:1px solid rgba(214,172,111,0.15);
+  }
+  footer .heart-note{font-size:1.6rem; margin-bottom:14px;}
+  footer p{color:var(--cream-dim); font-size:0.85rem; letter-spacing:0.03em;}
+  footer .script{color:var(--rose); font-size:1.4rem; display:block; margin-top:10px;}
+
+  ::selection{background:var(--rose); color:var(--ink);}
+
+  /* ---------- MUSIC TOGGLE ---------- */
+  .music-toggle{
+    position:fixed; top:20px; right:20px; z-index:50;
+    width:52px; height:52px; border-radius:50%; border:1px solid rgba(214,172,111,0.5);
+    background:linear-gradient(145deg,#4a2436,#241522);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.3rem; cursor:pointer; color:var(--gold);
+    box-shadow:0 10px 24px -10px rgba(0,0,0,0.6);
+    transition:transform 0.25s ease;
+  }
+  .music-toggle:hover{transform:scale(1.06);}
+  .music-toggle.playing{animation:spinNote 3.2s linear infinite;}
+  @keyframes spinNote{from{transform:rotate(0deg);} to{transform:rotate(360deg);}}
+</style>
+</head>
+<body>
+
+<audio id="bgMusic" src="https://files.catbox.moe/cy1h66.m4a" loop preload="auto"></audio>
+<button class="music-toggle" id="musicToggle" onclick="toggleMusic()" aria-label="Play music">🎵</button>
+
+<section class="hero">
+  <div class="eyebrow">Happy Girlfriend Day</div>
+
+  <div class="locket">
+    <div class="locket-inner">
+      <img src="https://files.catbox.moe/5thkry.jpg" alt="Sargam" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'placeholder-note',textContent:'Photo load nahi hui'}))">
+    </div>
+  </div>
+
+  <h1 class="title">Meri sabse khaas</h1>
+  <div class="name-script script">Sargam</div>
+  <p class="tag">Aaj ka din sirf tumhare liye hai. Happy Girlfriend Day, meri jaan.</p>
+
+  <div class="scroll-cue">Scroll<span class="arrow"></span></div>
+</section>
+
+<section class="letter-section">
+  <div class="section-head">
+    <div class="eyebrow">Ek Chhota Sa Khat</div>
+    <h2>Tumhare liye, mere dil se</h2>
+  </div>
+  <div class="envelope-wrap">
+    <div class="envelope" id="envelope" onclick="toggleLetter()">
+      <div class="seal">💌</div>
+      <div class="hint">Tap to open the letter</div>
+    </div>
+    <div class="letter-body" id="letterBody">
+      <p>Sargam,</p>
+      <p>Aaj Girlfriend Day hai, aur main chahta hoon tumhe wo sab bataana jo main roz nahi kehta. Tumhare saath jo simple se pal hote hain, wahi mere din ke sabse khaas hisse ban jaate hain.</p>
+      <p>Tumhare saath ka har simple sa pal — mujhe sabse zyada sukoon deta hai. Tum jaise ho, waise hi perfect ho.</p>
+      <p>Thank you for being exactly who you are. Happy Girlfriend Day, meri jaan.</p>
+      <div class="sign-off">— Prem</div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery-section">
+  <div class="section-head">
+    <div class="eyebrow">Ek Yaad</div>
+    <h2>Meri favourite tasveer</h2>
+  </div>
+  <div class="frame">
+    <div class="frame-inner">
+      <img src="https://files.catbox.moe/93gi2x.jpg" alt="Sargam" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'placeholder-note',textContent:'Photo load nahi hui'}))">
+    </div>
+  </div>
+  <p class="frame-caption">Sargam · Girlfriend Day 🎶</p>
+</section>
+
+<footer>
+  <div class="heart-note">❤️</div>
+  <p>Made with love, for you.</p>
+  <span class="script">Happy Girlfriend Day, Sargam</span>
+</footer>
+
+<script>
+  function toggleMusic(){
+    var audio = document.getElementById('bgMusic');
+    var btn = document.getElementById('musicToggle');
+    if(audio.paused){
+      audio.play().then(function(){
+        btn.classList.add('playing');
+      }).catch(function(){
+        alert('Song load nahi ho paaya. Link check karein ya browser mein directly file kholein.');
+      });
+    } else {
+      audio.pause();
+      btn.classList.remove('playing');
+    }
+  }
+
+  function toggleLetter(){
+    var body = document.getElementById('letterBody');
+    var envelope = document.getElementById('envelope');
+    body.classList.toggle('open');
+    envelope.querySelector('.hint').textContent = body.classList.contains('open') ? 'Tap to close' : 'Tap to open the letter';
+  }
+</script>
+
+</body>
+</html>
