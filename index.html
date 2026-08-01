@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Girlfriend Day, Sargam 🎶</title>
+
+<meta property="og:title" content="Happy Girlfriend Day, Sargam 🎶">
+<meta property="og:description" content="Ek chhota sa surprise, sirf tumhare liye.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Petit+Formal+Script&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -23,12 +29,22 @@
     color:var(--cream);
     font-family:'Work Sans',sans-serif;
     overflow-x:hidden;
+    transition:background 0.4s ease, color 0.4s ease;
+  }
+  /* ---------- LIGHT THEME ---------- */
+  body.light-mode{
+    --ink:#faf3ec;
+    --wine:#f2dde1;
+    --rose:#b5586a;
+    --gold:#a97a41;
+    --cream:#3a1f2c;
+    --cream-dim:#6b4756;
   }
   h1,h2,h3,.display{font-family:'Fraunces',serif;}
   .script{font-family:'Petit Formal Script',cursive;}
 
   a{color:inherit;}
-  section{position:relative;padding:120px 24px;}
+  section{position:relative;padding:120px 24px; z-index:2;}
 
   /* ---------- HERO ---------- */
   .hero{
@@ -38,6 +54,21 @@
     background:
       radial-gradient(circle at 50% 15%, rgba(217,138,148,0.18), transparent 60%),
       linear-gradient(180deg,#241522 0%, var(--ink) 55%, #150a13 100%);
+    background-size:140% 140%;
+    animation:heroDrift 22s ease-in-out infinite alternate;
+    overflow:hidden;
+  }
+  @keyframes heroDrift{
+    from{background-position:0% 0%;}
+    to{background-position:20% 15%;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .hero{animation:none;}
+  }
+  body.light-mode .hero{
+    background:
+      radial-gradient(circle at 50% 15%, rgba(181,88,106,0.10), transparent 60%),
+      linear-gradient(180deg,#fdf8f3 0%, var(--ink) 55%, #f3e6da 100%);
   }
   .eyebrow{
     letter-spacing:0.3em; text-transform:uppercase; font-size:0.72rem;
@@ -56,7 +87,6 @@
     background:linear-gradient(160deg,#7a3b4d,#3a1c2b);
     display:flex; align-items:center; justify-content:center;
   }
-  /* Replace this img src with Sargam's real photo — see comment near </body> */
   .locket-inner img{
     width:100%; height:100%; object-fit:cover; display:block;
   }
@@ -81,10 +111,23 @@
   }
   .scroll-cue .arrow{display:block; margin:8px auto 0; width:1px; height:34px; background:var(--gold); animation:pulseLine 2s infinite;}
 
+  /* ---------- STICKERS ---------- */
+  .sticker{
+    position:absolute; font-size:1.4rem; opacity:0.55; pointer-events:none;
+    animation:stickerSway 5s ease-in-out infinite;
+  }
+  @keyframes stickerSway{
+    0%,100%{transform:rotate(-6deg) translateY(0);}
+    50%{transform:rotate(6deg) translateY(-6px);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .sticker{animation:none;}
+  }
+
   @keyframes floatIn{from{opacity:0; transform:translateY(18px) scale(0.94);} to{opacity:1; transform:translateY(0) scale(1);}}
   @keyframes pulseLine{0%,100%{opacity:0.25;} 50%{opacity:0.9;}}
 
-  .section-head{text-align:center; max-width:640px; margin:0 auto 80px;}
+  .section-head{text-align:center; max-width:640px; margin:0 auto 60px;}
   .section-head .eyebrow{color:var(--rose);}
   .section-head h2{font-size:clamp(1.7rem,4vw,2.4rem); font-weight:600;}
   .section-head p{color:var(--cream-dim); margin-top:14px; line-height:1.7;}
@@ -114,6 +157,7 @@
     background:#241522; border:1px solid rgba(214,172,111,0.25); border-radius:6px;
     animation:unfold 0.5s ease both;
   }
+  body.light-mode .letter-body{background:#fff9f3;}
   .letter-body.open{display:block;}
   @keyframes unfold{from{opacity:0; transform:translateY(-10px) scaleY(0.96);} to{opacity:1; transform:translateY(0) scaleY(1);}}
   .letter-body p{margin-bottom:16px; line-height:1.85; color:var(--cream-dim); font-size:1rem;}
@@ -124,6 +168,9 @@
   .gallery-section{
     background:linear-gradient(180deg,#150a13,var(--wine) 60%, #150a13);
     text-align:center;
+  }
+  body.light-mode .gallery-section{
+    background:linear-gradient(180deg,#fdf8f3,var(--wine) 60%, #fdf8f3);
   }
   .frame{
     max-width:360px; margin:0 auto; padding:14px;
@@ -139,10 +186,51 @@
   .frame-inner .placeholder-note{color:rgba(247,236,226,0.5); font-size:0.9rem; padding:20px; line-height:1.6;}
   .frame-caption{margin-top:20px; color:var(--cream-dim); font-size:0.9rem; letter-spacing:0.04em;}
 
+  /* ---------- SURPRISE SECTION ---------- */
+  /* ---------- REPLY FORM ---------- */
+  .reply-section{background:var(--ink); text-align:center;}
+  .reply-form{max-width:480px; margin:0 auto; display:flex; flex-direction:column; gap:16px;}
+  .reply-form textarea{
+    width:100%; padding:16px; border-radius:8px; border:1px solid rgba(214,172,111,0.35);
+    background:#241522; color:var(--cream); font-family:'Work Sans',sans-serif; font-size:0.95rem;
+    resize:vertical; min-height:110px;
+  }
+  body.light-mode .reply-form textarea{background:#fff9f3;}
+  .reply-form textarea:focus{outline:none; border-color:var(--gold);}
+  .reply-form button{
+    align-self:center; padding:14px 34px; border-radius:40px; border:none; cursor:pointer;
+    background:linear-gradient(135deg,var(--rose),#a24b5e); color:#fff7f2;
+    font-family:'Work Sans',sans-serif; font-size:0.95rem; font-weight:500;
+    box-shadow:0 14px 30px -12px rgba(162,75,94,0.55); transition:transform 0.2s ease;
+  }
+  .reply-form button:hover{transform:translateY(-3px);}
+  .reply-form button:disabled{opacity:0.6; cursor:not-allowed; transform:none;}
+  .reply-status{margin-top:16px; font-size:0.85rem; color:var(--cream-dim); min-height:18px;}
+
+  .surprise-section{background:var(--ink); text-align:center;}
+  .surprise-btn{
+    display:inline-block; padding:16px 34px; border-radius:40px; cursor:pointer;
+    background:linear-gradient(135deg,var(--rose),#a24b5e); color:#fff7f2;
+    border:none; font-family:'Work Sans',sans-serif; font-size:0.95rem; font-weight:500;
+    letter-spacing:0.03em; box-shadow:0 14px 30px -12px rgba(162,75,94,0.55);
+    transition:transform 0.2s ease;
+  }
+  .surprise-btn:hover{transform:translateY(-3px);}
+  .surprise-card{
+    max-width:480px; margin:34px auto 0; min-height:70px;
+    padding:26px 28px; border-radius:8px;
+    background:#241522; border:1px solid rgba(214,172,111,0.25);
+    font-family:'Fraunces',serif; font-style:italic; font-size:1.08rem; line-height:1.6;
+    color:var(--cream); opacity:0; transition:opacity 0.35s ease;
+  }
+  body.light-mode .surprise-card{background:#fff9f3;}
+  .surprise-card.show{opacity:1;}
+
   /* ---------- FOOTER ---------- */
   footer{
     padding:70px 24px 50px; text-align:center; background:var(--ink);
     border-top:1px solid rgba(214,172,111,0.15);
+    position:relative; z-index:2;
   }
   footer .heart-note{font-size:1.6rem; margin-bottom:14px;}
   footer p{color:var(--cream-dim); font-size:0.85rem; letter-spacing:0.03em;}
@@ -150,9 +238,9 @@
 
   ::selection{background:var(--rose); color:var(--ink);}
 
-  /* ---------- MUSIC TOGGLE ---------- */
-  .music-toggle{
-    position:fixed; top:20px; right:20px; z-index:50;
+  /* ---------- TOP-RIGHT CONTROLS ---------- */
+  .music-toggle, .theme-toggle{
+    position:fixed; top:20px; z-index:50;
     width:52px; height:52px; border-radius:50%; border:1px solid rgba(214,172,111,0.5);
     background:linear-gradient(145deg,#4a2436,#241522);
     display:flex; align-items:center; justify-content:center;
@@ -160,72 +248,201 @@
     box-shadow:0 10px 24px -10px rgba(0,0,0,0.6);
     transition:transform 0.25s ease;
   }
-  .music-toggle:hover{transform:scale(1.06);}
+  .music-toggle{right:20px;}
+  .theme-toggle{right:84px;}
+  .music-toggle:hover, .theme-toggle:hover{transform:scale(1.06);}
   .music-toggle.playing{animation:spinNote 3.2s linear infinite;}
   @keyframes spinNote{from{transform:rotate(0deg);} to{transform:rotate(360deg);}}
+
+  /* ---------- FALLING HEARTS/PETALS ---------- */
+  .floaters{position:fixed; inset:0; pointer-events:none; z-index:3; overflow:hidden;}
+  .floater{position:absolute; top:-40px; will-change:transform, opacity; animation:fallDown linear forwards;}
+  @keyframes fallDown{to{transform:translateY(112vh) rotate(360deg); opacity:0;}}
+  @media (prefers-reduced-motion: reduce){
+    .floater{display:none;}
+  }
+
+  /* ---------- HEART BURST (envelope open) ---------- */
+  .burst-heart{position:fixed; z-index:60; pointer-events:none; font-size:1.3rem; animation:burstMove 0.9s ease-out forwards;}
+  @keyframes burstMove{to{transform:translate(var(--dx),var(--dy)) scale(0.3); opacity:0;}}
+
+  /* ---------- PIN LOCK ---------- */
+  .pin-lock{
+    position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center;
+    background:radial-gradient(circle at 50% 20%, #3a1c2b, var(--ink) 70%);
+    padding:24px;
+  }
+  .pin-box{text-align:center; max-width:320px;}
+  .pin-box .pin-icon{font-size:2.2rem; margin-bottom:16px;}
+  .pin-box h2{font-size:1.5rem; margin-bottom:10px;}
+  .pin-box p{color:var(--cream-dim); font-size:0.9rem; margin-bottom:26px;}
+  .pin-box input{
+    width:100%; padding:14px; border-radius:8px; border:1px solid rgba(214,172,111,0.4);
+    background:#241522; color:var(--cream); font-size:1.4rem; text-align:center;
+    letter-spacing:0.5em; margin-bottom:16px;
+  }
+  .pin-box input:focus{outline:none; border-color:var(--gold);}
+  .pin-box button{
+    width:100%; padding:14px; border-radius:8px; border:none; cursor:pointer;
+    background:linear-gradient(135deg,var(--gold),#a97a41); color:#241522; font-weight:600; font-size:1rem;
+  }
+  .pin-error{color:var(--rose); font-size:0.82rem; margin-top:14px; min-height:18px;}
+
+  /* ---------- MOBILE SPACING PASS ---------- */
+  @media (max-width:600px){
+    section{padding:76px 20px;}
+    .section-head{margin:0 auto 40px;}
+    .hero{min-height:100vh; padding:0 20px;}
+    .locket{width:132px; height:132px; margin-bottom:24px;}
+    .name-script{margin:4px 0 16px;}
+    .hero p.tag{font-size:0.95rem;}
+    .scroll-cue{margin-top:38px;}
+    .envelope{padding:30px 22px;}
+    .letter-body{padding:26px 22px; margin-top:26px;}
+    .letter-body p{margin-bottom:13px; font-size:0.95rem;}
+    .frame{max-width:280px; padding:10px;}
+    .frame-caption{margin-top:16px;}
+    .reply-form textarea{min-height:90px; padding:14px;}
+    .reply-form button, .surprise-btn{padding:13px 28px; font-size:0.9rem;}
+    .surprise-card{padding:20px 20px; margin-top:24px;}
+    footer{padding:50px 20px 40px;}
+    .music-toggle, .theme-toggle{width:46px; height:46px; font-size:1.15rem;}
+    .music-toggle{right:14px; top:14px;}
+    .theme-toggle{right:68px; top:14px;}
+    .sticker{font-size:1.15rem;}
+    .pin-box{max-width:280px;}
+  }
 </style>
 </head>
 <body>
 
-<audio id="bgMusic" src="https://files.catbox.moe/cy1h66.m4a" loop preload="auto"></audio>
-<button class="music-toggle" id="musicToggle" onclick="toggleMusic()" aria-label="Play music">🎵</button>
+<div class="pin-lock" id="pinLock">
+  <div class="pin-box">
+    <div class="pin-icon">🔒</div>
+    <h2>Ek Chhota Sa Lock</h2>
+    <p>Ye site sirf Sargam ke liye hai. PIN daal ke andar aao.</p>
+    <input type="tel" id="pinInput" maxlength="4" inputmode="numeric" placeholder="••••" autocomplete="off">
+    <button onclick="checkPin()">Unlock</button>
+    <div class="pin-error" id="pinError"></div>
+  </div>
+</div>
 
-<section class="hero">
-  <div class="eyebrow">Happy Girlfriend Day</div>
+<div id="siteContent" style="display:none;">
 
-  <div class="locket">
-    <div class="locket-inner">
-      <img src="https://files.catbox.moe/5thkry.jpg" alt="Sargam" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'placeholder-note',textContent:'Photo load nahi hui'}))">
+  <div class="floaters" id="floaters" aria-hidden="true"></div>
+
+  <audio id="bgMusic" src="https://files.catbox.moe/cy1h66.m4a" loop preload="auto"></audio>
+  <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button>
+  <button class="music-toggle" id="musicToggle" onclick="toggleMusic()" aria-label="Play music">🎵</button>
+
+  <section class="hero">
+    <span class="sticker" style="top:12%; left:10%;">✨</span>
+    <span class="sticker" style="top:20%; right:12%; animation-delay:1.2s;">🌸</span>
+    <span class="sticker" style="bottom:16%; left:8%; animation-delay:2.1s;">💫</span>
+    <span class="sticker" style="bottom:22%; right:9%; animation-delay:0.6s;">⭐</span>
+
+    <div class="eyebrow">Happy Girlfriend Day</div>
+
+    <div class="locket">
+      <div class="locket-inner">
+        <img src="https://files.catbox.moe/5thkry.jpg" alt="Sargam" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'placeholder-note',textContent:'Photo load nahi hui'}))">
+      </div>
     </div>
-  </div>
 
-  <h1 class="title">Meri sabse khaas</h1>
-  <div class="name-script script">Sargam</div>
-  <p class="tag">Aaj ka din sirf tumhare liye hai. Happy Girlfriend Day, meri jaan.</p>
+    <h1 class="title">Meri sabse khaas</h1>
+    <div class="name-script script">Sargam</div>
+    <p class="tag" id="moodTag">Aaj ka din sirf tumhare liye hai. Happy Girlfriend Day, meri jaan.</p>
 
-  <div class="scroll-cue">Scroll<span class="arrow"></span></div>
-</section>
+    <div class="scroll-cue">Scroll<span class="arrow"></span></div>
+  </section>
 
-<section class="letter-section">
-  <div class="section-head">
-    <div class="eyebrow">Ek Chhota Sa Khat</div>
-    <h2>Tumhare liye, mere dil se</h2>
-  </div>
-  <div class="envelope-wrap">
-    <div class="envelope" id="envelope" onclick="toggleLetter()">
-      <div class="seal">💌</div>
-      <div class="hint">Tap to open the letter</div>
+  <section class="letter-section">
+    <div class="section-head">
+      <div class="eyebrow">Ek Chhota Sa Khat</div>
+      <h2>Tumhare liye, mere dil se</h2>
     </div>
-    <div class="letter-body" id="letterBody">
-      <p>Sargam,</p>
-      <p>Aaj Girlfriend Day hai, aur main chahta hoon tumhe wo sab bataana jo main roz nahi kehta. Tumhare saath jo simple se pal hote hain, wahi mere din ke sabse khaas hisse ban jaate hain.</p>
-      <p>Tumhare saath ka har simple sa pal — mujhe sabse zyada sukoon deta hai. Tum jaise ho, waise hi perfect ho.</p>
-      <p>Thank you for being exactly who you are. Happy Girlfriend Day, meri jaan.</p>
-      <div class="sign-off">— Prem</div>
+    <div class="envelope-wrap">
+      <div class="envelope" id="envelope" onclick="toggleLetter(event)">
+        <div class="seal">💌</div>
+        <div class="hint">Tap to open the letter</div>
+      </div>
+      <div class="letter-body" id="letterBody">
+        <p>Sargam,</p>
+        <p>Aaj Girlfriend Day hai, aur main chahta hoon tumhe wo sab bataana jo main roz nahi kehta. Tumhare saath jo simple se pal hote hain, wahi mere din ke sabse khaas hisse ban jaate hain.</p>
+        <p>Tumhare saath ka har simple sa pal — chai pite hue baatein karna, ya bas fon pe chup rehna — mujhe sabse zyada sukoon deta hai. Tum jaise ho, waise hi perfect ho.</p>
+        <p>Thank you for being exactly who you are. Happy Girlfriend Day, meri jaan.</p>
+        <div class="sign-off">— Prem</div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="gallery-section">
-  <div class="section-head">
-    <div class="eyebrow">Ek Yaad</div>
-    <h2>Meri favourite tasveer</h2>
-  </div>
-  <div class="frame">
-    <div class="frame-inner">
-      <img src="https://files.catbox.moe/93gi2x.jpg" alt="Sargam" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'placeholder-note',textContent:'Photo load nahi hui'}))">
+  <section class="gallery-section">
+    <div class="section-head">
+      <div class="eyebrow">Ek Yaad</div>
+      <h2>Meri favourite tasveer</h2>
     </div>
-  </div>
-  <p class="frame-caption">Sargam · Girlfriend Day 🎶</p>
-</section>
+    <div class="frame">
+      <div class="frame-inner">
+        <img src="https://files.catbox.moe/93gi2x.jpg" alt="Sargam" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'placeholder-note',textContent:'Photo load nahi hui'}))">
+      </div>
+    </div>
+    <p class="frame-caption">Sargam · Girlfriend Day 🎶</p>
+  </section>
 
-<footer>
-  <div class="heart-note">❤️</div>
-  <p>Made with love, for you.</p>
-  <span class="script">Happy Girlfriend Day, Sargam</span>
-</footer>
+  <section class="reply-section">
+    <div class="section-head">
+      <div class="eyebrow">Tumhari Baari</div>
+      <h2>Kuch kehna hai?</h2>
+      <p>Jo dil mein hai, yahan likh do — seedha mujhe pahunch jayega.</p>
+    </div>
+    <form id="replyForm" class="reply-form">
+      <textarea name="message" id="replyMessage" placeholder="Yahan likho..." required></textarea>
+      <button type="submit">Send 💌</button>
+    </form>
+    <div class="reply-status" id="replyStatus"></div>
+  </section>
+
+  <section class="surprise-section">
+    <div class="section-head">
+      <div class="eyebrow">Bas Ek Aur Cheez</div>
+      <h2>Ek surprise chahiye?</h2>
+    </div>
+    <button class="surprise-btn" onclick="showSurprise()">Tap for a surprise 🎁</button>
+    <div class="surprise-card" id="surpriseCard"></div>
+  </section>
+
+  <footer>
+    <div class="heart-note">❤️</div>
+    <p>Made with love, for you.</p>
+    <span class="script">Happy Girlfriend Day, Sargam</span>
+  </footer>
+
+</div>
 
 <script>
+  // ---------- PIN LOCK ----------
+  // Change this to whatever 4-digit PIN you want:
+  var SITE_PIN = "2025";
+
+  function checkPin(){
+    var val = document.getElementById('pinInput').value.trim();
+    if(val === SITE_PIN){
+      document.getElementById('pinLock').style.display = 'none';
+      document.getElementById('siteContent').style.display = 'block';
+      startFloaters();
+      showMoodGreeting();
+      var audio = document.getElementById('bgMusic');
+      var btn = document.getElementById('musicToggle');
+      audio.play().then(function(){ btn.classList.add('playing'); }).catch(function(){});
+    } else {
+      document.getElementById('pinError').textContent = 'Galat PIN, dobara try karo.';
+    }
+  }
+  document.getElementById('pinInput').addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ checkPin(); }
+  });
+
+  // ---------- MUSIC ----------
   function toggleMusic(){
     var audio = document.getElementById('bgMusic');
     var btn = document.getElementById('musicToggle');
@@ -241,12 +458,121 @@
     }
   }
 
-  function toggleLetter(){
+  // ---------- THEME TOGGLE ----------
+  function toggleTheme(){
+    var isLight = document.body.classList.toggle('light-mode');
+    document.getElementById('themeToggle').textContent = isLight ? '☀️' : '🌙';
+  }
+
+  // ---------- LETTER + HEART BURST ----------
+  function toggleLetter(evt){
     var body = document.getElementById('letterBody');
     var envelope = document.getElementById('envelope');
+    var opening = !body.classList.contains('open');
     body.classList.toggle('open');
-    envelope.querySelector('.hint').textContent = body.classList.contains('open') ? 'Tap to close' : 'Tap to open the letter';
+    envelope.querySelector('.hint').textContent = opening ? 'Tap to close' : 'Tap to open the letter';
+    if(opening){
+      heartBurst(evt.clientX, evt.clientY);
+    }
   }
+
+  function heartBurst(x, y){
+    var symbols = ['❤️','💕','💛'];
+    for(var i = 0; i < 12; i++){
+      var el = document.createElement('span');
+      el.className = 'burst-heart';
+      el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      el.style.left = x + 'px';
+      el.style.top = y + 'px';
+      var angle = Math.random() * Math.PI * 2;
+      var dist = 60 + Math.random() * 90;
+      el.style.setProperty('--dx', Math.cos(angle) * dist + 'px');
+      el.style.setProperty('--dy', Math.sin(angle) * dist + 'px');
+      document.body.appendChild(el);
+      setTimeout(function(node){ return function(){ node.remove(); }; }(el), 950);
+    }
+  }
+
+  // ---------- SURPRISE QUOTES ----------
+  var surpriseLines = [
+    "Tumhari smile mera favourite part of the day hai.",
+    "Jitna main batata hoon, usse kahin zyada main tumhare baare mein sochta hoon.",
+    "Tum meri sabse achi decision ho.",
+    "Bas yeh yaad rakhna — tum bahut khaas ho, mere liye aur waise bhi.",
+    "Har din tumhare saath ek naya reason banta hai smile karne ka.",
+    "Tumhari care karne ka tareeka, mujhe hamesha sukoon deta hai.",
+    "Chahe din kaisa bhi ho, tumhara message aate hi sab better lagta hai."
+  ];
+  var lastIndex = -1;
+  function showSurprise(){
+    var card = document.getElementById('surpriseCard');
+    var idx;
+    do{ idx = Math.floor(Math.random() * surpriseLines.length); } while(idx === lastIndex && surpriseLines.length > 1);
+    lastIndex = idx;
+    card.classList.remove('show');
+    setTimeout(function(){
+      card.textContent = surpriseLines[idx];
+      card.classList.add('show');
+    }, 120);
+  }
+
+  // ---------- FALLING HEARTS/PETALS (ambient) ----------
+  var floaterTimer = null;
+  function startFloaters(){
+    if(floaterTimer) return;
+    var container = document.getElementById('floaters');
+    var symbols = ['❤','🌸','💛'];
+    function spawn(){
+      var el = document.createElement('span');
+      el.className = 'floater';
+      el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      var size = 0.7 + Math.random() * 0.8;
+      el.style.left = (Math.random() * 100) + 'vw';
+      el.style.fontSize = size + 'rem';
+      el.style.opacity = 0.25 + Math.random() * 0.3;
+      var duration = 9 + Math.random() * 8;
+      el.style.animationDuration = duration + 's';
+      container.appendChild(el);
+      setTimeout(function(){ el.remove(); }, duration * 1000 + 200);
+    }
+    floaterTimer = setInterval(spawn, 900);
+    spawn();
+  }  // ---------- REPLY FORM (delivers to your Gmail via Formspree) ----------
+  var replyForm = document.getElementById('replyForm');
+  replyForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var status = document.getElementById('replyStatus');
+    var btn = replyForm.querySelector('button');
+    btn.disabled = true;
+    status.textContent = 'Bhej rahe hain...';
+    fetch('https://formspree.io/pk4030794@gmail.com', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(replyForm)
+    }).then(function(res){
+      btn.disabled = false;
+      if(res.ok){
+        status.textContent = 'Reply bhej diya! 💌';
+        replyForm.reset();
+      } else {
+        status.textContent = 'Kuch gadbad hui, dobara try karo.';
+      }
+    }).catch(function(){
+      btn.disabled = false;
+      status.textContent = 'Kuch gadbad hui, dobara try karo.';
+    });
+  });  // ---------- MOOD-BASED GREETING ----------
+  function showMoodGreeting(){
+    var hour = new Date().getHours();
+    var msg;
+    if(hour < 5){ msg = "Itni raat ko bhi jaag rahe ho? Neend puri karo, meri jaan."; }
+    else if(hour < 12){ msg = "Subah ki pehli muskaan tumhare naam. Happy Girlfriend Day!"; }
+    else if(hour < 17){ msg = "Dopahar mein bhi ek pal ke liye tumhara khayal aaya."; }
+    else if(hour < 21){ msg = "Sham dhalte hi tumhari yaad aur zyada aati hai."; }
+    else{ msg = "Raat ko sone se pehle, ek baar tumhe yeh batana zaroori tha."; }
+    document.getElementById('moodTag').textContent = msg;
+  }
+
 </script>
 
 </body>
